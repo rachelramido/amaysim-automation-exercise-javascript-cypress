@@ -30,7 +30,7 @@ jobs:
       - name: UploadArtifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ScreenshotsAndVideos
+          name: ScreenshotsAndVideosUbuntuElectron
           path: |
             cypress/videos
             cypress/screenshots
@@ -53,7 +53,100 @@ jobs:
       - name: UploadArtifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ScreenshotsAndVideos
+          name: ScreenshotsAndVideosUbuntuChrome
+          path: |
+            cypress/videos
+            cypress/screenshots
+          if-no-files-found: ignore
+
+  testLinuxFirefox:
+    name: Run tests on a Ubuntu environment on Firefox
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node12.16.1-chrome80-ff73
+      options: --user 1001
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Cypress tests in Firefox
+        uses: cypress-io/github-action@v4
+        with:
+          browser: chrome
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ScreenshotsAndVideosUbuntuFirefox
+          path: |
+            cypress/videos
+            cypress/screenshots
+          if-no-files-found: ignore
+
+  testWindowsElectron:
+    name: Run tests on a Windows environment on Electron
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Cypress tests in Electron
+        uses: cypress-io/github-action@v4
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ScreenshotsAndVideosWindowsElectron
+          path: |
+            cypress/videos
+            cypress/screenshots
+          if-no-files-found: ignore
+
+  testWindowsChrome:
+    name: Run tests on a Windows environment on Chrome
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Cypress tests in Chrome
+        uses: cypress-io/github-action@v4
+        with:
+          browser: chrome
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ScreenshotsAndVideosWindowsChrome
+          path: |
+            cypress/videos
+            cypress/screenshots
+          if-no-files-found: ignore
+
+  testWindowsEdge:
+    name: Run tests on a Windows environment on Edge
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Cypress tests in Edge
+        uses: cypress-io/github-action@v4
+        with:
+          browser: edge
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ScreenshotsAndVideosWindowsEdge
           path: |
             cypress/videos
             cypress/screenshots
