@@ -63,7 +63,7 @@ jobs:
     name: Run tests on a Ubuntu environment on Firefox
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node12.16.1-chrome80-ff73
+      image: cypress/browsers:node16.14.0-chrome99-ff97
       options: --user 1001
     steps:
       - name: Checkout

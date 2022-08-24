@@ -7,9 +7,9 @@ Base Test framework for a test automation exercise. This version is built with c
 ### Tests
 1. All tests are in the folder `cypress/e2e`. The test files have the name suffix `.spec.cy.js`.
 1. There's currently one test `mobile_autorenewal.spec.cy.js`. This test does the below:
-   1. Login as an existing customer.
+   1. Visit the amaysim home page, login as an existing customer and view the dashboad page. The url, username and password are read from the `cypress/fixtures/tesData.json` file.
    1. From the dashboard page, go to the mobile settings page.
-   1. Verify that `AutoRenewal` for this mobile service is turned off.
+   1. On the Mobile Settings page, verify that `AutoRenewal` for this mobile service is turned off.
 1. The tests use the Page Object Model. The page classes are in `cypress/e2e/pageObjects`.
 1. When run from the command line, by default, tests will run in the headless `electron` browser. You can change this to run in chrome if needed.
 
