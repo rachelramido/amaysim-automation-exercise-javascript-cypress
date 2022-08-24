@@ -1,4 +1,5 @@
 import BasePage from './basePage'
+import mobilePlanDetailsPage from './mobilePlanDetailsPage'
 
 class DashboardPage extends BasePage {
   constructor() {
@@ -18,6 +19,8 @@ class DashboardPage extends BasePage {
       .contains('Manage plan')
       .eq(0)
       .click({force: true})
+    mobilePlanDetailsPage.isDisplayed()
+    return mobilePlanDetailsPage
   }
 }
 

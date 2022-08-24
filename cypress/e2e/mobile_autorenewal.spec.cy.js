@@ -25,5 +25,7 @@ describe('Mobile Service', () => {
 
     // From the dashboard click on a mobile service to see its details page
     dashboardPage.viewServiceDetails()
+
+    // On the Mobile Plan details page click Usage History to view usage details page
   })
 })
