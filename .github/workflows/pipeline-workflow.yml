@@ -23,16 +23,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Debug
-        run: pwd
-      - name: DebugMore
-        run: ls -al
-      - name: DebugMoreX
-        run: ls -al ../
+      - name: Install
+        run: npm install
       - name: Cypress run
-        uses: cypress-io/github-action@v4
-        with:
-          spec: cypress/e2e/*spec.cy.js
+        uses: npx cypress run
       - name: UploadArtifacts
         uses: actions/upload-artifact@v1
         with:
