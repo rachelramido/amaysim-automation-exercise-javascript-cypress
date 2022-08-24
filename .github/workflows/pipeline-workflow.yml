@@ -1,0 +1,35 @@
+name: MyAmaysim Test Automation exercise pipeline
+on: [push]
+
+jobs:
+  install:
+    name: Install Dependancies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install
+        run: npm install
+  lint:
+    name: Lint
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Lint
+        run: npx run lint
+  testMobile:
+    name: Mobile Tests
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: TestMobile
+        run: npx cypress run
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: Screenshots and Videos
+          path: cypress/videos cypress/screenshots

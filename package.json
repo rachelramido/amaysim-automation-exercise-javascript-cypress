@@ -1,0 +1,20 @@
+{
+  "name": "amaysim-automation-exercise-javascript-cypress",
+  "version": "1.0.0",
+  "description": "Base Test framework for Test Automation exercise",
+  "scripts": {
+    "lint": "eslint e2e/pageObjects/*.js e2e/*.spec.cy.js",
+    "test": "npx cypress run",
+    "cypress:open": "npx cypress open"
+  },
+  "author": "Amaysim QA Team",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^10.6.0",
+    "eslint": "^8.22.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.7.1"
+  }
+}
