@@ -23,6 +23,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Debug
+        run: pwd
+      - name: DebugMore
+        run: ls -al
+      - name: DebugMoreX
+        run: ls -al ../
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
