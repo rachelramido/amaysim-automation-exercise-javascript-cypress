@@ -1,11 +1,13 @@
 describe('Mobile Service', () => {
+  let testData
+  
   before(() => {
     cy.fixture('testData').then((data) => {
-      this.data = data;
-    });
-  });
+      testData = data
+    })
+  })
 
   it('passes', () => {
-    cy.visit(this.data.url);
-  });
-});
+    cy.visit(testData.url)
+  })
+})
