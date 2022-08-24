@@ -3,8 +3,7 @@ import BasePage from './basePage'
 class DashboardPage extends BasePage {
   constructor() {
     super()
-    this.mainElement = 'div[data-automation-id="services"]'
-    this.serviceTitle = 'div[data-automation-id="mobile-tileheader"]'
+    this.mainElement = 'section[data-automation-id="mobile"]'
   }
 
   isDisplayed() {
@@ -13,8 +12,12 @@ class DashboardPage extends BasePage {
 
   viewServiceDetails() {
     cy.get(this.mainElement)
-      .get(this.serviceTitle)
-      .eq(1)
+      .contains('Manage plan')
+      .should('be.visible')
+    cy.get(this.mainElement)
+      .contains('Manage plan')
+      .eq(0)
+      .click({force: true})
   }
 }
 

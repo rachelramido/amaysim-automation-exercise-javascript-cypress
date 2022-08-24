@@ -18,18 +18,11 @@ class LoginPage extends BasePage {
     this.enterValueIntoInputField(this.username, user.mobileNumber)
     this.enterValueIntoInputField(this.password, user.password)
     cy.get(this.mainElement).contains('Login').click()
-    
+
     // Wait for dashboard to be displayed
     dashboardPage.isDisplayed()
 
     return dashboardPage
-  }
-
-  enterValueIntoInputField(field, value) {
-    cy.get(field).should('be.visible')
-    cy.get(field)
-      .type(value)
-      .should('have.value', value)
   }
 }
 
