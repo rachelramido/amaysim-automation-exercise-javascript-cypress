@@ -2,30 +2,17 @@ name: MyAmaysim Test Automation exercise pipeline
 on: [push]
 
 jobs:
-  install:
-    name: Install Dependancies
+  testMobile:
+    name: Mobile Tests
+    needs: install
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Install
         run: npm install
-  lint:
-    name: Lint
-    needs: install
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Lint
-        run: npx run lint
-  testMobile:
-    name: Mobile Tests
-    needs: lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+        run: npx eslint cypress/e2e/*.spec.cy.js
       - name: TestMobile
         run: npx cypress run
       - name: UploadArtifacts
