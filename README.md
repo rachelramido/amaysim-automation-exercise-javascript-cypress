@@ -11,7 +11,6 @@ Base Test framework for a test automation exercise. This version is built with c
    1. From the dashboard page, go to the mobile settings page.
    1. On the Mobile Settings page, verify that `AutoRenewal` for this mobile service is turned off.
 1. The tests use the Page Object Model. The page classes are in `cypress/e2e/pageObjects`.
-1. When run from the command line, by default, tests will run in the headless `electron` browser. You can change this to run in chrome if needed (see the "How to execute tests" section below).
 
 ### Cypress Configuration
 1. These are in the file `cypress.config.js`. Among other things, it contains the base URL.
@@ -42,11 +41,9 @@ Note: **Please make all your changes on this fork, and NOT on the original repo.
 1. Run `npm install`.
 
 ### Run tests
-In your commandline/terminal, from inside the `amaysim-automation-exercise-javascript-cypress` folder, run the command `npx cypress run`.
+In your commandline/terminal, from inside the `amaysim-automation-exercise-javascript-cypress` folder, run the command `npx cypress run --browser chrome --headed`.
 
 (You can also run `npx cypress open` to open the Cypress runner window. This might be useful while developing the test.)
-
-When run from the command line, by default, tests will run in the headless `electron` browser. During test development, if you want to use your local `chrome` browser instead, run the command `npx cypress run --browser chrome --headed`.
 
 ## How to submit your code
 
