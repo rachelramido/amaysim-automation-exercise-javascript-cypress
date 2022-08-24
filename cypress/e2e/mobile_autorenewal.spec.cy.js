@@ -1,6 +1,8 @@
 import dashboardPage from './pageObjects/dashboardPage'
 import homePage from './pageObjects/homePage'
 import loginPage from './pageObjects/loginPage'
+import mobilePlanDetailsPage from './pageObjects/mobilePlanDetailsPage'
+import usageHistoryPage from './pageObjects/usageHistoryPage'
 
 describe('Mobile Service', () => {
   let testData
@@ -10,22 +12,15 @@ describe('Mobile Service', () => {
     cy.fixture('testData').then((data) => {
       testData = data
     })
-
-    // Visit Home Page
-    homePage.visit()
+    
+    homePage.visit() // Visit Home Page
   })
 
   it('Can successfully check autorenewal setting', () => {
-
-    // Click on "Accounts" to go to Login Page
-    homePage.goToLoginPage()
-
-    // Enter mobile number and password to Login into the dashboard page
-    loginPage.login(testData.user)
-
-    // From the dashboard click on a mobile service to see its details page
-    dashboardPage.viewServiceDetails()
-
-    // On the Mobile Plan details page click Usage History to view usage details page
+    homePage.goToLoginPage() // Click on "Accounts" to go to Login Page
+    loginPage.login(testData.user) // Enter mobile number and password to Login into the dashboard page
+    dashboardPage.viewServiceDetails() // From the dashboard click on a mobile service to see details page
+    mobilePlanDetailsPage.goToUsageHistory() // On the Mobile Plan details page click Usage History
+    usageHistoryPage.searchYesterdaysUsage() // On the usage history page, search for yesterday's mobile usage
   })
 })
