@@ -14,7 +14,7 @@ jobs:
         run: npx eslint
 
   testLinuxElectron:
-    name: Run tests on a Ubuntu environment on Electron
+    name: Run tests on a Linux environment on Electron
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -30,14 +30,14 @@ jobs:
       - name: UploadArtifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ScreenshotsAndVideosUbuntuElectron
+          name: ScreenshotsAndVideosLinuxElectron
           path: |
             cypress/videos
             cypress/screenshots
           if-no-files-found: ignore
 
   testLinuxChrome:
-    name: Run tests on a Ubuntu environment on Chrome
+    name: Run tests on a Linux environment on Chrome
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -53,14 +53,14 @@ jobs:
       - name: UploadArtifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ScreenshotsAndVideosUbuntuChrome
+          name: ScreenshotsAndVideosLinuxChrome
           path: |
             cypress/videos
             cypress/screenshots
           if-no-files-found: ignore
 
   testLinuxFirefox:
-    name: Run tests on a Ubuntu environment on Firefox
+    name: Run tests on a Linux environment on Firefox
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node16.14.0-chrome99-ff97
@@ -79,7 +79,51 @@ jobs:
       - name: UploadArtifacts
         uses: actions/upload-artifact@v3
         with:
-          name: ScreenshotsAndVideosUbuntuFirefox
+          name: ScreenshotsAndVideosLinuxFirefox
+          path: |
+            cypress/videos
+            cypress/screenshots
+          if-no-files-found: ignore
+
+  testMacElectron:
+    name: Run tests on a Mac environment on Electron
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Cypress tests in Electron
+        uses: cypress-io/github-action@v4
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ScreenshotsAndVideosMacElectron
+          path: |
+            cypress/videos
+            cypress/screenshots
+          if-no-files-found: ignore
+
+  testMacChrome:
+    name: Run tests on a Mac environment on Chrome
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Cypress tests in Chrome
+        uses: cypress-io/github-action@v4
+        with:
+          browser: chrome
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ScreenshotsAndVideosMacChrome
           path: |
             cypress/videos
             cypress/screenshots
