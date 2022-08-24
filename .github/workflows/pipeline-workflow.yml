@@ -11,7 +11,7 @@ jobs:
       - name: Install
         run: npm install
       - name: Lint
-        run: npx eslint cypress/e2e/*.spec.cy.js
+        run: npx eslint
 
   testLinuxElectron:
     name: Run tests on a Ubuntu environment on Electron
