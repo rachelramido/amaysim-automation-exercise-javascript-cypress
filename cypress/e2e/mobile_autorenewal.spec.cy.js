@@ -1,3 +1,4 @@
+import dashboardPage from './pageObjects/dashboardPage'
 import homePage from './pageObjects/homePage'
 import loginPage from './pageObjects/loginPage'
 
@@ -21,5 +22,8 @@ describe('Mobile Service', () => {
 
     // Enter mobile number and password to Login into the dashboard page
     loginPage.login(testData.user)
+
+    // From the dashboard click on a mobile service to see its details page
+    dashboardPage.viewServiceDetails()
   })
 })

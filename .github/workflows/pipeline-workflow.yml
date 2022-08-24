@@ -8,6 +8,7 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -19,6 +20,7 @@ jobs:
   testLinuxElectron:
     name: Test on Linux/Electron
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -42,6 +44,7 @@ jobs:
   testLinuxChrome:
     name: Test on Linux/Chrome
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -65,6 +68,7 @@ jobs:
   testLinuxFirefox:
     name: Test on Linux/Firefox
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     container:
       image: cypress/browsers:node16.14.0-chrome99-ff97
       options: --user 1001
@@ -91,6 +95,7 @@ jobs:
   testMacElectron:
     name: Test on Mac/Electron
     runs-on: macos-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -112,6 +117,7 @@ jobs:
   testMacChrome:
     name: Test on Mac/Chrome
     runs-on: macos-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -135,6 +141,7 @@ jobs:
   testWindowsElectron:
     name: Test on Windows/Electron
     runs-on: windows-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -156,6 +163,7 @@ jobs:
   testWindowsChrome:
     name: Test on Windows/Chrome
     runs-on: windows-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -179,6 +187,7 @@ jobs:
   testWindowsEdge:
     name: Test on Windows/Edge
     runs-on: windows-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
