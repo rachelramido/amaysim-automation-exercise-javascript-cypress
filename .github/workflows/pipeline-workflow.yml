@@ -56,6 +56,7 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           browser: chrome
+          headed: true
       - name: UploadArtifacts
         uses: actions/upload-artifact@v3
         with:
@@ -82,7 +83,8 @@ jobs:
       - name: Run Cypress tests in Firefox
         uses: cypress-io/github-action@v4
         with:
-          browser: chrome
+          browser: firefox
+          headed: true
       - name: UploadArtifacts
         uses: actions/upload-artifact@v3
         with:
@@ -129,6 +131,7 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           browser: chrome
+          headed: true
       - name: UploadArtifacts
         uses: actions/upload-artifact@v3
         with:
@@ -175,6 +178,7 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           browser: chrome
+          headed: true
       - name: UploadArtifacts
         uses: actions/upload-artifact@v3
         with:
@@ -199,6 +203,7 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           browser: edge
+          headed: true
       - name: UploadArtifacts
         uses: actions/upload-artifact@v3
         with:
