@@ -1,4 +1,5 @@
 import homePage from './pageObjects/homePage'
+import loginPage from './pageObjects/loginPage'
 
 describe('Mobile Service', () => {
   let testData
@@ -8,13 +9,17 @@ describe('Mobile Service', () => {
     cy.fixture('testData').then((data) => {
       testData = data
     })
+
+    // Visit Home Page
+    homePage.visit()
   })
 
   it('Can successfully check autorenewal setting', () => {
-    expect(testData.user).to.have.property('mobileNumber')
-    expect(testData.user.mobileNumber).to.match(/^\d{10}/)
-    expect(testData.user).to.have.property('password')
-    expect(testData.user.password.length).to.greaterThan(0)
-    homePage.visit()
+
+    // Click on "Accounts" to go to Login Page
+    homePage.goToLoginPage()
+
+    // Enter mobile number and password to Login into the dashboard page
+    loginPage.login(testData.user)
   })
 })

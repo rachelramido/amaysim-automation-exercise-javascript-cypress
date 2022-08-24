@@ -1,31 +1,20 @@
 import BasePage from './basePage'
+import loginPage from './loginPage'
 
 class HomePage extends BasePage {
   constructor() {
     super()
     this.url = '/'
-    this.mainElement = '#select-plan'
-    this.nextButton = 'input#step-plan'
-    this.portingSection = 'div.order_transaction_porting'
-    this.newNumberElement = '#selected-number'
+    this.mainElement = '#main'
+    this.accountLink = 'a[href="/my-account/login"]'
   }
 
   goToLoginPage() {
-    cy.get(this.mainElement)
-      .get(this.portingSection)
-      .contains('new number')
+    cy.get(this.mainElement).should('be.visible')
+    cy.get(this.accountLink).filter(':visible')
       .click()
-    cy.get(this.mainElement)
-      .get(this.portingSection)
-      .get(this.newNumberElement)
-      .text()
-      .then(mobileNum => {
-        cy.task('log', mobileNum)
-        expect(mobileNum).to.match(/\d{4}\s\d{3}\s\d{3}/)
-      })
-    cy.get(this.mainElement)
-      .get(this.nextButton)
-      .click()
+    loginPage.isDisplayed()
+    return loginPage
   }
 }
 
