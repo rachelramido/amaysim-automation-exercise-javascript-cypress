@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Base Test framework for Test Automation exercise",
   "scripts": {
-    "lint": "npx eslint cypress/e2e/*.spec.cy.js",
-    "lintFix": "npx eslint --fix cypress/e2e/*.spec.cy.js",
-    "test": "npx cypress run",
+    "lint": "npx eslint",
+    "lintFix": "npx eslint --fix",
+    "test": "npx cypress run --browser chrome --headed",
     "cypress:open": "npx cypress open"
   },
   "author": "Amaysim QA Team",

@@ -11,6 +11,7 @@ Base Test framework for a test automation exercise. This version is built with c
    1. From the dashboard page, go to the mobile settings page.
    1. On the Mobile Settings page, verify that `AutoRenewal` for this mobile service is turned off.
 1. The tests use the Page Object Model. The page classes are in `cypress/e2e/pageObjects`.
+1. This Cypress framework works best in `Chrome`. You will likely run into 
 
 ### Cypress Configuration
 1. These are in the file `cypress.config.js`. Among other things, it contains the base URL.
@@ -29,16 +30,21 @@ Install `git`. Please google for installation instructions. If you already have 
 ### Install Node and Npm
 Install `node` and `npm` on your machine. Please google for installation instructions. If you already have this installed, you dont need to do it again.
 
-### Checkout the code create a fork for yourself
-In the github repository, create a fork.
-
-TODO: provide instructions/screenshots
+### Create a fork for yourself and checkout the code
+1. On your browser, login to github.com.
+1. Navigate to this code repository.
+1. Fork this repository. as below:
+![Fork](/readme-assets/fork.png)
+![New Fork](/readme-assets/new_fork.png)
+If you need it, here are the [intructions] (https://docs.github.com/en/get-started/quickstart/fork-a-repo) on Github for how to crate a fork.
 
 Note: **Please make all your changes on this fork, and NOT on the original repo.**
 
+1. Once you've created a fork, checkout the code, by running this in your terminal/command line: `git clone git@github.com:<your github username>/amaysim-automation-exercise-javascript-cypress.git`
+
 ### Install dependancies
 1. Go to your folder where you checked out the code: `cd amaysim-automation-exercise-javascript-cypress`
-1. Run `npm install`.
+1. Run `npm install` on your terminal/command line.
 
 ### Run tests
 In your commandline/terminal, from inside the `amaysim-automation-exercise-javascript-cypress` folder, run the command `npx cypress run --browser chrome --headed`.
@@ -57,9 +63,5 @@ In your commandline/terminal, from inside the `amaysim-automation-exercise-javas
 
 *ps: Feel free to use whatever steps you're familiar with to commit/push. You do not have to follow the exact same steps above. Some candidates feel more comfortable using GUI-based tools.*
 
-### Create a pull request in github
-Create a new Pull Request from your fork to the original repo.
-TODO: provide instructions/screenshots
-
-### Send us a link to this pull request
-The link usually looks like this: ``
+### Send us a link to this fork
+After you're done with your changes, send us a link to your repo.
