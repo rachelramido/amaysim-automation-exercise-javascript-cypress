@@ -14,13 +14,13 @@ Base Test framework for a test automation exercise. This version is built with c
 1. This Cypress framework works best in the headed `Chrome` browser. You will likely run into a `blocked loading mixed active content` error if you run it on Firefox.
 
 ### Cypress Configuration
-1. These are in the file `cypress.config.js`. Among other things, it contains the base URL.
+These are in the file `cypress.config.js`. Among other things, it contains the base URL.
 
 ### Test Data
-1. These are under the folder `cypress/fixtures`.
+These are under the folder `cypress/fixtures`.
 
 ### Page Classes/Objects
-1. These are in the folder `cypress/e2e/pageObjects`
+These are in the folder `cypress/e2e/pageObjects`
 
 ## How to execute tests
 
@@ -37,17 +37,16 @@ Install `node` and `npm` on your machine. Please google for installation instruc
 ![Fork](/readme-assets/fork.png)
 ![New Fork](/readme-assets/new_fork.png)
 If you need it, here are the detailed intructions on Github on how to do this: https://docs.github.com/en/get-started/quickstart/fork-a-repo
+1. Once you've created a fork, checkout the code, by running this in your terminal/command line: `git clone git@github.com:<your github username>/amaysim-automation-exercise-javascript-cypress.git`
 
 Note: **Please make all your changes on this fork, and NOT on the original repo.**
 
-1. Once you've created a fork, checkout the code, by running this in your terminal/command line: `git clone git@github.com:<your github username>/amaysim-automation-exercise-javascript-cypress.git`
-
 ### Install dependancies
 1. Go to your folder where you checked out the code: `cd amaysim-automation-exercise-javascript-cypress`
-1. Run `npm install` on your terminal/command line.
+1. Run `npm install`.
 
 ### Run tests
-In your commandline/terminal, from inside the `amaysim-automation-exercise-javascript-cypress` folder, run the command `npx cypress run --browser chrome --headed`.
+From inside the `amaysim-automation-exercise-javascript-cypress` folder, run the command `npx cypress run --browser chrome --headed`.
 
 (You can also run `npx cypress open` to open the Cypress runner window. This might be useful while developing the test.)
 
@@ -56,12 +55,12 @@ In your commandline/terminal, from inside the `amaysim-automation-exercise-javas
 **Please make all your changes on your fork, and NOT on the original repo.**
 
 ### Push your changes into your forked repo
-1. In your command line/terminal, run `git status` to see all local changes.
+1. Run `git status` to see all local changes.
 2. Once you are happy with the changes, run `git add .` to stage all your local changes.
 3. Run `git commit -m "<a commit message of your choice>"` to commit your changes.
 4. Run `git push` to push your changes to your forked repository.
 
-*ps: Feel free to use whatever steps you're familiar with to commit/push. You do not have to follow the exact same steps above. Some candidates feel more comfortable using GUI-based tools.*
+*ps: Feel free to use whatever steps you're familiar with to commit/push. You do not have to follow the exact same steps above. Some candidates feel more comfortable using GUI-based tools. Feel free to commit as you go and not just at the end*
 
 ### Send us a link to this fork
 After you're done with your changes, send us a link to your repo.
