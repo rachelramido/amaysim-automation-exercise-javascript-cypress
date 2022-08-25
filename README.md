@@ -6,12 +6,12 @@ Base Test framework for a test automation exercise. This version is built with c
 
 ### Tests
 1. All tests are in the folder `cypress/e2e`. The test files have the name suffix `.spec.cy.js`.
-1. There's currently one test `mobile_autorenewal.spec.cy.js`. This test does the below:
+1. There's currently only one test `cypress/e2e/mobile_usage_history.spec.cy.js`. This test does the below:
    1. Visit the amaysim home page, login as an existing customer and view the dashboad page. The username and password are read from the `cypress/fixtures/tesData.json` file.
-   1. From the dashboard page, go to the mobile settings page.
-   1. On the Mobile Settings page, verify that `AutoRenewal` for this mobile service is turned off.
+   1. From the dashboard page, click on the mobile service tile go to the mobile plan details page.
+   1. On the Mobile Plan details page, click on the Usage History to see the usage history page, and perform a search in that page.
 1. The tests use the Page Object Model. The page classes are in `cypress/e2e/pageObjects`.
-1. This Cypress framework works best in `Chrome`. You will likely run into 
+1. This Cypress framework works best in the headed `Chrome` browser. You will likely run into a `blocked loading mixed active content` error if you run it on Firefox.
 
 ### Cypress Configuration
 1. These are in the file `cypress.config.js`. Among other things, it contains the base URL.
@@ -36,7 +36,7 @@ Install `node` and `npm` on your machine. Please google for installation instruc
 1. Fork this repository. as below:
 ![Fork](/readme-assets/fork.png)
 ![New Fork](/readme-assets/new_fork.png)
-If you need it, here are the [intructions] (https://docs.github.com/en/get-started/quickstart/fork-a-repo) on Github for how to crate a fork.
+If you need it, here are the detailed intructions on Github on how to do this: https://docs.github.com/en/get-started/quickstart/fork-a-repo
 
 Note: **Please make all your changes on this fork, and NOT on the original repo.**
 

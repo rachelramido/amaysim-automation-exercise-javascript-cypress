@@ -16,7 +16,7 @@ describe('Mobile Service', () => {
     homePage.visit() // Visit Home Page
   })
 
-  it('Can successfully check autorenewal setting', () => {
+  it('Can search yesterdays usage history', () => {
     homePage.goToLoginPage() // Click on "Accounts" to go to Login Page
     loginPage.login(testData.user) // Enter mobile number and password to Login into the dashboard page
     dashboardPage.viewServiceDetails() // From the dashboard click on a mobile service to see details page
