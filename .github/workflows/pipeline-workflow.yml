@@ -18,7 +18,7 @@ jobs:
         run: npx eslint
 
   testLinuxElectron:
-    name: Test on Linux/Electron
+    name: Linux/Electron (headless)
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
@@ -42,7 +42,7 @@ jobs:
           if-no-files-found: ignore
 
   testLinuxChrome:
-    name: Test on Linux/Chrome
+    name: Linux/Chrome (headed)
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
@@ -66,58 +66,8 @@ jobs:
             cypress/screenshots
           if-no-files-found: ignore
 
-  testLinuxFirefox:
-    name: Test on Linux/Firefox
-    runs-on: ubuntu-latest
-    timeout-minutes: 6
-    container:
-      image: cypress/browsers:node16.14.0-chrome99-ff97
-      options: --user 1001
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Run Cypress tests in Firefox
-        uses: cypress-io/github-action@v4
-        with:
-          browser: firefox
-          headed: true
-      - name: UploadArtifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: ScreenshotsAndVideosLinuxFirefox
-          path: |
-            cypress/videos
-            cypress/screenshots
-          if-no-files-found: ignore
-
-  testMacElectron:
-    name: Test on Mac/Electron
-    runs-on: macos-latest
-    timeout-minutes: 6
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Run Cypress tests in Electron
-        uses: cypress-io/github-action@v4
-      - name: UploadArtifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: ScreenshotsAndVideosMacElectron
-          path: |
-            cypress/videos
-            cypress/screenshots
-          if-no-files-found: ignore
-
   testMacChrome:
-    name: Test on Mac/Chrome
+    name: Mac/Chrome (headed)
     runs-on: macos-latest
     timeout-minutes: 7
     steps:
@@ -142,7 +92,7 @@ jobs:
           if-no-files-found: ignore
 
   testWindowsElectron:
-    name: Test on Windows/Electron
+    name: Windows/Electron (headless)
     runs-on: windows-latest
     timeout-minutes: 6
     steps:
@@ -164,7 +114,7 @@ jobs:
           if-no-files-found: ignore
 
   testWindowsChrome:
-    name: Test on Windows/Chrome
+    name: Windows/Chrome (headed)
     runs-on: windows-latest
     timeout-minutes: 7
     steps:
@@ -189,7 +139,7 @@ jobs:
           if-no-files-found: ignore
 
   testWindowsEdge:
-    name: Test on Windows/Edge
+    name: Windows/Edge (headed)
     runs-on: windows-latest
     timeout-minutes: 6
     steps:

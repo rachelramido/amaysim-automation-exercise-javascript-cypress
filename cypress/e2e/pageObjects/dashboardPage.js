@@ -5,6 +5,7 @@ class DashboardPage extends BasePage {
   constructor() {
     super()
     this.mainElement = 'section[data-automation-id="mobile"]'
+    this.serviceTile = 'div[data-automation-id="mobile-tileheader"'
   }
 
   isDisplayed() {
@@ -12,13 +13,10 @@ class DashboardPage extends BasePage {
   }
 
   viewServiceDetails() {
-    cy.get(this.mainElement)
-      .contains('Manage plan')
+    cy.get(this.serviceTile)
       .should('be.visible')
-    cy.get(this.mainElement)
-      .contains('Manage plan')
-      .eq(0)
-      .click({force: true})
+    cy.get(this.serviceTile)
+      .click()
     mobilePlanDetailsPage.isDisplayed()
     return mobilePlanDetailsPage
   }
