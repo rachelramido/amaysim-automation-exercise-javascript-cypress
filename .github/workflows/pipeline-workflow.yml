@@ -21,7 +21,7 @@ jobs:
         run: npx eslint
 
   testLinuxElectron:
-    name: Linux/Electron (headless)
+    name: Linux/Electron
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
@@ -45,7 +45,7 @@ jobs:
           if-no-files-found: ignore
 
   testLinuxChrome:
-    name: Linux/Chrome (headed)
+    name: Linux/Chrome
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
@@ -69,8 +69,82 @@ jobs:
             cypress/screenshots
           if-no-files-found: ignore
 
+  testLinuxChromeHeadless:
+    name: Linux/ChromeHeadless
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Cypress tests in Chrome
+        uses: cypress-io/github-action@v4
+        with:
+          browser: chrome
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ScreenshotsAndVideosLinuxChromeHeadless
+          path: |
+            cypress/videos
+            cypress/screenshots
+          if-no-files-found: ignore
+
+  testLinuxFirefox:
+    name: Linux/Firefox
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    container:
+      image: cypress/browsers:node16.14.0-chrome99-ff97
+      options: --user 1001
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Cypress tests in Firefox
+        uses: cypress-io/github-action@v4
+        with:
+          browser: firefox
+          headed: true
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ScreenshotsAndVideosLinuxFirefox
+          path: |
+            cypress/videos
+            cypress/screenshots
+          if-no-files-found: ignore
+
+  testMacElectron:
+    name: Mac/Electron
+    runs-on: macos-latest
+    timeout-minutes: 6
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Cypress tests in Electron
+        uses: cypress-io/github-action@v4
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ScreenshotsAndVideosMacElectron
+          path: |
+            cypress/videos
+            cypress/screenshots
+          if-no-files-found: ignore
+
   testMacChrome:
-    name: Mac/Chrome (headed)
+    name: Mac/Chrome
     runs-on: macos-latest
     timeout-minutes: 7
     steps:
@@ -95,7 +169,7 @@ jobs:
           if-no-files-found: ignore
 
   testWindowsElectron:
-    name: Windows/Electron (headless)
+    name: Windows/Electron
     runs-on: windows-latest
     timeout-minutes: 6
     steps:
@@ -117,7 +191,7 @@ jobs:
           if-no-files-found: ignore
 
   testWindowsChrome:
-    name: Windows/Chrome (headed)
+    name: Windows/Chrome
     runs-on: windows-latest
     timeout-minutes: 7
     steps:
@@ -136,6 +210,31 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ScreenshotsAndVideosWindowsChrome
+          path: |
+            cypress/videos
+            cypress/screenshots
+          if-no-files-found: ignore
+
+  testWindowsEdge:
+    name: Windows/Edge
+    runs-on: windows-latest
+    timeout-minutes: 6
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Run Cypress tests in Edge
+        uses: cypress-io/github-action@v4
+        with:
+          browser: edge
+          headed: true
+      - name: UploadArtifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ScreenshotsAndVideosWindowsEdge
           path: |
             cypress/videos
             cypress/screenshots
