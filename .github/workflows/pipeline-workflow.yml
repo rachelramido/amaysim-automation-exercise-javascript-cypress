@@ -96,35 +96,6 @@ jobs:
             cypress/screenshots
           if-no-files-found: ignore
 
-  testLinuxFirefox:
-    name: Linux/Firefox
-    runs-on: ubuntu-latest
-    timeout-minutes: 6
-    container:
-      image: cypress/browsers:node16.14.0-chrome99-ff97
-      options: --user 1001
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup environment
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Run Cypress tests in Firefox
-        uses: cypress-io/github-action@v4
-        with:
-          browser: firefox
-          headed: true
-      - name: UploadArtifacts
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: ScreenshotsAndVideosLinuxFirefox
-          path: |
-            cypress/videos
-            cypress/screenshots
-          if-no-files-found: ignore
-
   testMacElectron:
     name: Mac/Electron
     runs-on: macos-latest

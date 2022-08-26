@@ -11,7 +11,7 @@ Base Test framework for a test automation exercise. This version is built with c
    1. From the dashboard page, click on the mobile service tile go to the mobile plan details page.
    1. On the Mobile Plan details page, click on the Usage History to see the usage history page, and perform a search in that page.
 1. The tests use the Page Object Model. The page classes are in `cypress/e2e/pageObjects`.
-1. This Cypress framework works best in the headed `Chrome` browser. You will likely run into a `blocked loading mixed active content` error if you run it on Firefox.
+1. This Cypress framework works best in the headed `Chrome` browser.
 
 ### Cypress Configuration
 These are in the file `cypress.config.js`. Among other things, it contains the base URL.
