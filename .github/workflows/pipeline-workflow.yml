@@ -177,10 +177,7 @@ jobs:
   testMacFirefox:
     name: Mac/Firefox
     runs-on: macos-latest
-    timeout-minutes: 6
-    container:
-      image: cypress/browsers:node16.14.0-chrome99-ff97
-      options: --user 1001
+    timeout-minutes: 7
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -206,7 +203,7 @@ jobs:
   testWindowsElectron:
     name: Windows/Electron
     runs-on: windows-latest
-    timeout-minutes: 6
+    timeout-minutes: 7
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -255,10 +252,7 @@ jobs:
   testWindowsFirefox:
     name: Windows/Firefox
     runs-on: windows-latest
-    timeout-minutes: 6
-    container:
-      image: cypress/browsers:node16.14.0-chrome99-ff97
-      options: --user 1001
+    timeout-minutes: 7
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -284,7 +278,7 @@ jobs:
   testWindowsEdge:
     name: Windows/Edge
     runs-on: windows-latest
-    timeout-minutes: 6
+    timeout-minutes: 7
     steps:
       - name: Checkout
         uses: actions/checkout@v3
