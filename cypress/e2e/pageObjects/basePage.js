@@ -4,8 +4,8 @@ class BasePage {
   }
 
   enterValueIntoInputField(field, value) {
-    cy.get(field).should('be.visible')
     cy.get(field)
+      .should('be.visible')
       .type(value)
       .should('have.value', value)
   }

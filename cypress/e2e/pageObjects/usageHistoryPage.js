@@ -12,15 +12,26 @@ class UsageHistoryPage extends BasePage {
   }
 
   isDisplayed() {
-    cy.get(this.menu).should('be.visible')
-    cy.get(this.pageTitle).should('contain', 'usage history').and('be.visible')
+    cy.get(this.menu)
+      .should('be.visible')
+    cy.get(this.pageTitle)
+      .should('contain', 'usage history')
+      .and('be.visible')
   }
 
   searchYesterdaysUsage() {
-    cy.get(this.searchForm).should('be.visible')
-    cy.get(this.searchForm).get(this.timePeriodSelector).select('Yesterday')
-    cy.get(this.searchForm).get(this.searchButton).click()
-    cy.get(this.searchResultsArea).should('contain', 'There are no results found')
+    cy.get(this.searchForm)
+      .should('be.visible')
+      .get(this.timePeriodSelector)
+      .should('be.visible')
+      .select('Yesterday')
+    cy.get(this.searchForm)
+      .get(this.searchButton)
+      .should('be.visible')
+      .click()
+    cy.get(this.searchResultsArea)
+      .should('be.visible')
+      .should('contain', 'There are no results found')
   }
 }
 

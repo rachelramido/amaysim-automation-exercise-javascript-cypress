@@ -10,14 +10,17 @@ class LoginPage extends BasePage {
   }
 
   isDisplayed() {
-    cy.get(this.mainElement).should('be.visible')
+    cy.get(this.mainElement)
+      .should('be.visible')
   }
 
   login(user) {
     // Enter username and password and click Login
     this.enterValueIntoInputField(this.username, user.mobileNumber)
     this.enterValueIntoInputField(this.password, user.password)
-    cy.get(this.mainElement).contains('Login').click()
+    cy.get(this.mainElement)
+      .contains('Login')
+      .click()
 
     // Wait for dashboard to be displayed
     dashboardPage.isDisplayed()

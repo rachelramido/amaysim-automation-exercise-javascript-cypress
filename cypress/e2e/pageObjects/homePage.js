@@ -10,8 +10,10 @@ class HomePage extends BasePage {
   }
 
   goToLoginPage() {
-    cy.get(this.mainElement).should('be.visible')
-    cy.get(this.accountLink).filter(':visible')
+    cy.get(this.mainElement)
+      .should('be.visible')
+    cy.get(this.accountLink)
+      .filter(':visible')
       .click()
     loginPage.isDisplayed()
     return loginPage

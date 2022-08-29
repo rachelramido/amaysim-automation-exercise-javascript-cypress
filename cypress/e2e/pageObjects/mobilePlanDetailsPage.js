@@ -9,8 +9,11 @@ class MobilePlanDetailsPage extends BasePage {
   }
 
   isDisplayed() {
-    cy.get(this.menu).should('be.visible')
-    cy.get(this.pageTitle).should('contain', 'plan').and('be.visible')
+    cy.get(this.menu)
+      .should('be.visible')
+    cy.get(this.pageTitle)
+      .should('contain', 'plan')
+      .and('be.visible')
   }
 
   goToUsageHistory() {
