@@ -1,5 +1,6 @@
 import BasePage from './basePage'
 import usageHistoryPage from './usageHistoryPage'
+import referAFriendPage from './referAFriendPage'
 
 class MobilePlanDetailsPage extends BasePage {
   constructor() {
@@ -20,11 +21,22 @@ class MobilePlanDetailsPage extends BasePage {
     cy.get(this.menu)
       .contains('Usage history')
       .should('be.visible')
-      cy.get(this.menu)
+    cy.get(this.menu)
       .contains('Usage history')
       .click()
     usageHistoryPage.isDisplayed()
     return usageHistoryPage
+  }
+  
+  goToReferAFriend() {
+    cy.get(this.menu)
+      .contains('Refer a friend')
+      .should('be.visible')
+    cy.get(this.menu)
+      .contains('Refer a friend')
+      .click()
+    referAFriendPage.isDisplayed()
+    return referAFriendPage
   }
 }
 
